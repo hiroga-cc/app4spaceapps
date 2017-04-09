@@ -1,5 +1,4 @@
-# PostgreSQLにアクセスログを格納する
-# 将来的にはコネクション部分は分ける
+# coding: UTF-8
 
 import os
 import psycopg2
@@ -7,7 +6,7 @@ import urllib.parse
 
 from datetime import *
 
-# connの確立
+# connの確立/ 将来的にはクラス化する
 def geneConn():
     urllib.parse.uses_netloc.append("postgres")
     url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
