@@ -13,8 +13,8 @@ channel = a4sa
 class a4saCH():
 
     def __init__(self):
-        dao = a4saDAO.a4saDAO()
-        gen = send.GenJson()
+        self.dao = a4saDAO.a4saDAO()
+        self.gen = send.GenJson()
 
     def switch(self,sender,text):
         if text == ("Yes","True"):
