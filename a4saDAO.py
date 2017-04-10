@@ -32,7 +32,7 @@ class a4saDAO():
             elements.append(ele)
             row = cur.fetchone()
             print (elements)
-        return elemtens
+        return elements
 
     def select1App(self,sender):
         cur = self.conn.cursor()
