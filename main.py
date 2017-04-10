@@ -15,11 +15,10 @@ define("port", default=5000, help="run on the given port", type=int)
 import json
 import send
 
+import a4saCH
 import a4saDAO
 
 verify_token = os.environ.get("A4SA_VERIFY_TOKEN")
-print ("this is verify_token")
-print (verify_token)
 
 # application settings and handle mapping info
 class Application(tornado.web.Application):
@@ -53,15 +52,14 @@ class MainHandler(tornado.web.RequestHandler):
 # Webhook Handler
 class WebHookHandler(tornado.web.RequestHandler):
     def get(self):
-        print ('self.get_argument("hub.verify_token", "")') # あとで消す
-        print (self.get_argument("hub.verify_token", "")) # あとで消す
         if self.get_argument("hub.verify_token", "") == verify_token:
             self.write(self.get_argument("hub.challenge", ""));
         else:
             self.write('Error, wrong validation token');
+
     def post(self):
         data = json.loads(self.request.body.decode())
-        print ("*** received data ***")
+        print ("*** receive data ***")
         print (data) # standard -> OFF
 
         gen = send.GenJson()
@@ -71,18 +69,23 @@ class WebHookHandler(tornado.web.RequestHandler):
         for event in messaging_events:
             time = event["timestamp"]
             sender = event["sender"]["id"]
+            print ("sender -> " + sender)
             if ("message" in event and "text" in event["message"]):
                 text = event["message"]["text"]
             if len(text) <= 0:
                 return
-            reply = text + "、です！"
-            send.sendMessage(gen.setText(sender, reply))
+            # ここでメッセージを分類する。
+            ch = a4saCH.a4saCH()
+            ch.switch(sender,text)
+            # reply = text + "、です！"
+            # send.send(gen.setText(sender, reply))
 
 # for view
 class ViewHandler(tornado.web.RequestHandler):
     def get(self):
 
-        cnt = a4saDAO.getCounts()
+        dao = a4saDAO.a4saDAO()
+        cnt = dao.getCounts()
         google_analytics_id = False
 
         self.render(
