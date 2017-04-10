@@ -23,11 +23,7 @@ class a4saCH():
             send.send(self.gen.setText(sender, "Me too!!"))
             send.send(self.gen.setOption(sender, "Which category?",self.themes))
         elif text in self.themes:
-
-            return
-            # earthを鍵に、候補の名前、imgurl, urlを取得 x3 (これは外部メソッド書く)
-            # ここに新種のテンプレートを使ったメッセージ
-        elif text == "hoge":
-            send.send(self.gen.setTestPlaneList(sender))
+            send.send(self.gen.setTestPlaneList(sender, getAppsByTheme(self,text)))
         else:
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "True"]))
+        return

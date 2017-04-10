@@ -66,21 +66,6 @@ class GenJson():
             )
         return data
 
-    def returnPlaneListElement(self, title, image_url, subtitle, url, fallback_url):
-        return  {
-                    "title": title,
-                    "image_url": image_url,
-                    "subtitle": subtitle,
-                    "default_action": {
-                        "type": "web_url",
-                        "url": url,
-                        "messenger_extensions": True,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": fallback_url
-                    }
-                }
-        # button is not covered
-
     def setTestPlaneList(self, sender, elements):
         data = {
             "recipient":{ "id": sender },
@@ -106,3 +91,18 @@ class GenJson():
             tmp = returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elemtens"].append(tmp)
         return data
+
+    def returnPlaneListElement(self, title, image_url, subtitle, url, fallback_url):
+        return  {
+                    "title": title,
+                    "image_url": image_url,
+                    "subtitle": subtitle,
+                    "default_action": {
+                        "type": "web_url",
+                        "url": url,
+                        "messenger_extensions": True,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": fallback_url
+                    }
+                }
+        # button is not covered
