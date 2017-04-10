@@ -12,7 +12,7 @@ channel = a4sa
 
 class a4saCH():
 
-    def __init__():
+    def __init__(self):
         dao = a4saDAO.a4saDAO()
         gen = send.GenJson()
 
