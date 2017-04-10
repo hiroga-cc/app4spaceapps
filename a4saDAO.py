@@ -22,6 +22,7 @@ class a4saDAO():
 
     # selectした結果を3件全て返す
     def getAppsByTheme(self,theme):
+        print (theme)
         cur = self.conn.cursor()
         cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",theme)
         row = cur.fetchone()
