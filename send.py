@@ -23,7 +23,7 @@ def sendMessage(data): # to FacebookMessanger
 
 class GenJson():
 
-    def setText(sender, text):
+    def setText(self, sender, text):
         data = {
             "recipient": {
                 "id":sender
@@ -34,7 +34,7 @@ class GenJson():
         }
         return data
 
-    def setImage(sender, imgurl):
+    def setImage(self, sender, imgurl):
         data = {
             "recipient":{
                 "id":sender
@@ -50,7 +50,7 @@ class GenJson():
                 }
         return data
 
-    def setOption(sender, text, option): # optionはlist型などで提供願います。
+    def setOption(self, sender, text, option): # optionはlist型などで提供願います。
         data = {
             "recipient":{
                 "id":sender
