@@ -100,9 +100,9 @@ class GenJson():
                     "default_action": {
                         "type": "web_url",
                         "url": url,
-                        "messenger_extensions": True,
+                        # "messenger_extensions": True,
                         "webview_height_ratio": "tall",
-                        "fallback_url": fallback_url
+                        # "fallback_url": fallback_url
                     }
                 }
         # button is not covered
