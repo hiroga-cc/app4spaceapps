@@ -21,4 +21,4 @@ class a4saCH():
             send.send(self.gen.setText(sender, "Me too!!"))
             send.send(self.gen.setOption(sender, "Which category?",["Earth", "Space Station", "Technology"]))
         else:
-            send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "True"])
+            send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "True"]))
