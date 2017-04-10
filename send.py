@@ -84,7 +84,7 @@ class GenJson():
                             "default_action": {
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                                "messenger_extensions": true,
+                                "messenger_extensions": "true",
                                 "webview_height_ratio": "tall",
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             },
@@ -93,7 +93,7 @@ class GenJson():
                                     "title": "Buy",
                                     "type": "web_url",
                                     "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
-                                    "messenger_extensions": true,
+                                    "messenger_extensions": "true",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                                 }
@@ -106,7 +106,7 @@ class GenJson():
                             "default_action": {
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                                "messenger_extensions": true,
+                                "messenger_extensions": "true",
                                 "webview_height_ratio": "tall",
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             },
@@ -115,7 +115,7 @@ class GenJson():
                                     "title": "Buy",
                                     "type": "web_url",
                                     "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                                    "messenger_extensions": true,
+                                    "messenger_extensions": "true",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                                 }
@@ -128,7 +128,7 @@ class GenJson():
                             "default_action": {
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
-                                "messenger_extensions": true,
+                                "messenger_extensions": "true",
                                 "webview_height_ratio": "tall",
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             },
@@ -137,7 +137,7 @@ class GenJson():
                                     "title": "Buy",
                                     "type": "web_url",
                                     "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                                    "messenger_extensions": true,
+                                    "messenger_extensions": "true",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                                 }
@@ -150,7 +150,7 @@ class GenJson():
                             "default_action": {
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-                                "messenger_extensions": true,
+                                "messenger_extensions": "true",
                                 "webview_height_ratio": "tall",
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             },
@@ -159,7 +159,7 @@ class GenJson():
                                     "title": "Buy",
                                     "type": "web_url",
                                     "url": "https://peterssendreceiveapp.ngrok.io/shop?item=103",
-                                    "messenger_extensions": true,
+                                    "messenger_extensions": "true",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                                 }
