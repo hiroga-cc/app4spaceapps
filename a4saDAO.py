@@ -24,7 +24,7 @@ class a4saDAO():
     def getAppsByTheme(self,theme):
         print (theme)
         cur = self.conn.cursor()
-        cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",(theme))
+        cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",[theme])
         row = cur.fetchone()
         elements=[]
         while row is not None:
