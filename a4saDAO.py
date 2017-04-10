@@ -20,6 +20,12 @@ class a4saDAO():
             port=url.port
         )
 
+    def getAppsByTheme(self,theme):
+        cur = self.conn.cursor()
+        cur.execute("select name, year, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",theme)
+        result = cur.fetchone()
+        return result[0]
+
     def select1App(self,sender):
         cur = self.conn.cursor()
         cur.execute("select name from apps where id = %d;",1)

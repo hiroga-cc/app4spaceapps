@@ -17,8 +17,14 @@ class a4saCH():
         self.gen = send.GenJson()
 
     def switch(self,sender,text):
-        if text == ("Yes","True"):
+        if text in ("Yes","True"):
             send.send(self.gen.setText(sender, "Me too!!"))
             send.send(self.gen.setOption(sender, "Which category?",["Earth", "Space Station", "Technology"]))
+        elif text in ["Earth", "Space Station", "Technology"]:
+            return
+            # earthを鍵に、候補の名前、imgurl, urlを取得 x3 (これは外部メソッド書く)
+            # ここに新種のテンプレートを使ったメッセージ
+        elif text == "hoge":
+            send.send(self.gen.setTestPlaneList(sender))
         else:
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "True"]))
