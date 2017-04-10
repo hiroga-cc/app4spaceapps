@@ -20,51 +20,50 @@ def sendMessage(data): # to FacebookMessanger
 
     r = requests.post(url, params=params, data=json.dumps(data), headers=headers)
 
-### packaging data into json
-def setBasicMessage(sender, text):
-    data = {
-        "recipient": {
-            "id":sender
-        },
-        "message":  {
-          "text":text
-        }
-    }
-    return data
 
-def setImage(sender, imgurl):
-    data = {
-        "recipient":{
-            "id":sender
-        },
-        "message":{
-            "attachment":{
-                "type":"image",
-                    "payload":{
-                        "url":imgurl
+class GenJson():
+
+    def setText(sender, text):
+        data = {
+            "recipient": {
+                "id":sender
+            },
+            "message":  {
+              "text":text
+            }
+        }
+        return data
+
+    def setImage(sender, imgurl):
+        data = {
+            "recipient":{
+                "id":sender
+            },
+            "message":{
+                "attachment":{
+                    "type":"image",
+                        "payload":{
+                            "url":imgurl
+                            }
                         }
                     }
                 }
+        return data
+
+    def setOption(sender, text, option): # optionはlist型などで提供願います。
+        data = {
+            "recipient":{
+                "id":sender
+            },
+            "message":{
+                "text":text,
+                "quick_replies":[]
             }
-    return data
-
-def setMenu():
-    return data
-
-def setOption(sender, text, option): # optionはlist型などで提供願います。
-    data = {
-        "recipient":{
-            "id":sender
-        },
-        "message":{
-            "text":text,
-            "quick_replies":[]
         }
-    }
-    for word in option:
-        data["message"]["quick_replies"].append(
-            {"content_type":"text",
-            "title":word,
-            "payload":word}
-        )
-    return data
+        for word in option:
+            data["message"]["quick_replies"].append(
+                {"content_type":"text",
+                "title":word,
+                "payload":word}
+            )
+        return data

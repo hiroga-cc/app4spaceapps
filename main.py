@@ -21,9 +21,6 @@ verify_token = os.environ.get("A4SA_VERIFY_TOKEN")
 print ("this is verify_token")
 print (verify_token)
 
-for env in os.environ: # for visible
-    print(env)
-
 # application settings and handle mapping info
 class Application(tornado.web.Application):
     def __init__(self):
@@ -66,6 +63,8 @@ class WebHookHandler(tornado.web.RequestHandler):
         data = json.loads(self.request.body.decode())
         print ("*** received data ***")
         print (data) # standard -> OFF
+
+        gen = send.GenJson()
         messaging_events = data["entry"][0]["messaging"]
         text = ""
         time = ""
@@ -77,7 +76,7 @@ class WebHookHandler(tornado.web.RequestHandler):
             if len(text) <= 0:
                 return
             reply = text + "、です！"
-            send.sendMessage(send.setBasicMessage(sender, reply))
+            send.sendMessage(gen.setText(sender, reply))
 
 # for view
 class ViewHandler(tornado.web.RequestHandler):
