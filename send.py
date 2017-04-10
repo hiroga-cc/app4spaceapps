@@ -88,7 +88,7 @@ class GenJson():
             }
         }
         for elm in elements:
-            tmp = returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
+            tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elemtens"].append(tmp)
         return data
 
