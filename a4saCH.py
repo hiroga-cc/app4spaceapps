@@ -21,8 +21,8 @@ class a4saCH():
     def switch(self,sender,text):
         if text in ("Yes","True"):
             send.send(self.gen.setText(sender, "Me too!!"))
-            send.send(self.gen.setOption(sender, "Which category?",themes))
-        elif text in themes:
+            send.send(self.gen.setOption(sender, "Which category?",self.themes))
+        elif text in self.themes:
             return
             # earthを鍵に、候補の名前、imgurl, urlを取得 x3 (これは外部メソッド書く)
             # ここに新種のテンプレートを使ったメッセージ
