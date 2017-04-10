@@ -1,7 +1,7 @@
 # coding: UTF-8
 
 #!/usr/bin/env python
-import os.path
+import os
 import tornado.escape
 import tornado.httpserver
 import tornado.ioloop
@@ -20,6 +20,9 @@ import a4saDAO
 verify_token = os.environ.get("A4SA_VERIFY_TOKEN")
 print ("this is verify_token")
 print (verify_token)
+
+for env in os.environ: # for visible
+    print(env)
 
 # application settings and handle mapping info
 class Application(tornado.web.Application):
