@@ -76,17 +76,18 @@ class GenJson():
                         "template_type": "list",
                         "top_element_style": "compact",
                         "elements": [],
-                        "buttons": [
-                            {
-                                "title": "View More",
-                                "type": "postback",
-                                "payload": "payload"
-                            }
-                        ]
+                        # "buttons": [
+                        #     {
+                        #         "title": "View More",
+                        #         "type": "postback",
+                        #         "payload": "payload"
+                        #     }
+                        # ]
                     }
                 }
             }
         }
+        # button postback is now disable
         for elm in elements:
             tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elements"].append(tmp)
