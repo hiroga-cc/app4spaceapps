@@ -20,11 +20,18 @@ class a4saDAO():
             port=url.port
         )
 
+    # selectした結果を3件全て返す
     def getAppsByTheme(self,theme):
         cur = self.conn.cursor()
-        cur.execute("select name, year, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",theme)
-        result = cur.fetchone()
-        return result[0]
+        cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by nominee desc fetch first 3 rows only;",theme)
+        row = cur.fetchone()
+        elements=[]
+        while row is not None:
+            ele={"title":row[0], "image_url":row[2], "subtitle":row[1], "url":row[3], "fallback_url":"https://2016.spaceappschallenge.org/challenges"}
+            elements.append(ele)
+            row = cur.fetchone()
+            print (elements)
+        return elemtens
 
     def select1App(self,sender):
         cur = self.conn.cursor()
