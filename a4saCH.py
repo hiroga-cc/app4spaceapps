@@ -14,7 +14,7 @@ class a4saCH():
 
     def __init__():
         dao = a4saDAO.a4saDAO()
-        gen = send.GenJson():
+        gen = send.GenJson()
 
     def switch(self,sender,text):
         if text == ("Yes","True"):
