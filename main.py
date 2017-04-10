@@ -17,7 +17,7 @@ import send
 
 import a4saDAO
 
-verify_token = os.environ.get("A4SA_PAGE_ACCESS_TOKEN")
+verify_token = os.environ.get("A4SA_VERIFY_TOKEN")
 print ("this is verify_token")
 print (verify_token)
 
