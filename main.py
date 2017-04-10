@@ -18,6 +18,8 @@ import send
 import a4saDAO
 
 verify_token = os.environ.get("A4SA_VERIFY_TOKEN")
+print ("this is verify_token")
+print (verify_token)
 
 # application settings and handle mapping info
 class Application(tornado.web.Application):
@@ -51,6 +53,8 @@ class MainHandler(tornado.web.RequestHandler):
 # Webhook Handler
 class WebHookHandler(tornado.web.RequestHandler):
     def get(self):
+        print ('self.get_argument("hub.verify_token", "")') # あとで消す
+        print (self.get_argument("hub.verify_token", "")) # あとで消す
         if self.get_argument("hub.verify_token", "") == verify_token:
             self.write(self.get_argument("hub.challenge", ""));
         else:
