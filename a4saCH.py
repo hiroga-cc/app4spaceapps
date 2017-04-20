@@ -12,7 +12,7 @@ channel = a4sa
 
 class a4saCH():
 
-    themes = ["Earth", "Space Station", "Technology"]
+    themes = ["Earth", "Aero", "Mars", "Solar-System", "Space-Station", "Tech"]
 
     def __init__(self):
         self.dao = a4saDAO.a4saDAO()
