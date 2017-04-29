@@ -3,6 +3,8 @@
 import re
 import random
 
+import requests
+
 import send
 import a4saDAO
 
@@ -26,6 +28,20 @@ class a4saCH():
             elements = self.dao.getAppsByTheme(text)
             send.send(self.gen.setText(sender, "{0}, it's interesting.".format(text)))
             send.send(self.gen.setTestPlaneList(sender, elements))
-        else:
+        elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
+        else:
+            elements = self.dao.getAppsByTheme(helpMeIBM(text))
+            send.send(self.gen.setText(sender, "You have an interest in {0}, right?".format(text)))
+            send.send(self.gen.setTestPlaneList(sender, elements))
         return
+
+    # return theme
+    def helpMeIBM(self,text):
+        username = os.environ["IBM_NLC_USER"]
+        password = os.environ["IBM_NLC_PASS"]
+        classifier = os.environ["IBM_NLC_CLSFR"]
+
+        url = "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/{}/classify".format(classifier)
+        res = requests.get(url, auth=(username,password), params={"text":text})
+        return res.json()["top_class"]
