@@ -16,6 +16,7 @@ channel = a4sa
 class a4saCH():
 
     themes = ["earth", "aero", "mars", "solar-system", "space-station", "tech"]
+    sugoroku = ["glacier", "hunting", "earthquake", "drought", "mine"]
 
     def __init__(self):
         self.dao = a4saDAO.a4saDAO()
@@ -29,6 +30,8 @@ class a4saCH():
             elements = self.dao.getAppsByTheme(text)
             send.send(self.gen.setText(sender, "{0}, it's interesting.".format(text)))
             send.send(self.gen.setTestPlaneList(sender, elements))
+        elif text in self.sugoroku
+            self.getByWordShowAll(sender,text)
         elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
         else:
@@ -38,6 +41,22 @@ class a4saCH():
             send.send(self.gen.setText(sender, "You have an interest in {0}, right?".format(guessed)))
             send.send(self.gen.setTestPlaneList(sender, elements))
         return
+
+    # send all elements by list format
+    def getByWordShowAll(self,sender,text):
+        elements = self.dao.getAppsByWord(text)
+        for i, elm in enumerate(elements):
+            if i%3 == 0:
+                print ("amari 0")
+                data = self.gen.returnPlaneListNoElements(sender)
+            tmp = self.gen.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
+            data["message"]["attachment"]["payload"]["elements"].append(tmp)
+            if i%3 == 2:
+                print ("amari 2")
+                send.send(data)
+                print ("send this...")
+                print (data)
+        send.send(self.gen.setText(sender, "Wow, total {0} solutions HIT!".format(str(len(elements)))))
 
     # return theme
     def helpMeIBM(self,text):

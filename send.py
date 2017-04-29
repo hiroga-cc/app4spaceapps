@@ -69,6 +69,17 @@ class GenJson():
         return data
 
     def setTestPlaneList(self, sender, elements):
+        data = returnPlaneListNoElements(sender)
+
+        for elm in elements:
+            tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
+            data["message"]["attachment"]["payload"]["elements"].append(tmp)
+        print ("#DEBUG Generate json complete...")
+        print (data)
+        return data
+
+    def returnPlaneListNoElements(self, sender):
+        # button postback is now disable
         data = {
             "recipient":{ "id": sender },
             "message": {
@@ -89,12 +100,6 @@ class GenJson():
                 }
             }
         }
-        # button postback is now disable
-        for elm in elements:
-            tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
-            data["message"]["attachment"]["payload"]["elements"].append(tmp)
-        print ("#DEBUG Generate json complete...")
-        print (data)
         return data
 
     def returnPlaneListElement(self, title, image_url, subtitle, url, fallback_url):

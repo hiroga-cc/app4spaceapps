@@ -34,6 +34,19 @@ class a4saDAO():
         print (elements)
         return elements
 
+    # フリーワード検索で結果を全て返す
+    def getAppsByWord(self,theme):
+      cur = self.conn.cursor()
+      cur.execute("select name, explanation, imgurl, url from apps where apps.explanation like %s order by RANDOM() ;",['%'+theme+'%'])
+      row = cur.fetchone()
+      elements=[]
+      while row is not None:
+          ele={"title":row[0], "image_url":row[2], "subtitle":row[1], "url":row[3], "fallback_url":"https://2016.spaceappschallenge.org/challenges"}
+          elements.append(ele)
+          row = cur.fetchone()
+      return elements
+
+
     def select1App(self,sender):
         cur = self.conn.cursor()
         cur.execute("select name from apps where id = %d;",1)
