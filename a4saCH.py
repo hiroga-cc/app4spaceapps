@@ -27,16 +27,16 @@ class a4saCH():
             send.send(self.gen.setOption(sender, "Which category?",self.themes))
         elif text in self.themes:
             elements = self.dao.getAppsByTheme(text)
-            send.send(self.gen.setTestPlaneList(sender, elements))
             send.send(self.gen.setText(sender, "{0}, it's interesting.".format(text)))
+            send.send(self.gen.setTestPlaneList(sender, elements))
         elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
         else:
             guessed = self.helpMeIBM(text)
             elements = self.dao.getAppsByTheme(guessed)
             print ("help me IBM!")
-            send.send(self.gen.setTestPlaneList(sender, elements))
             send.send(self.gen.setText(sender, "You have an interest in {0}, right?".format(guessed)))
+            send.send(self.gen.setTestPlaneList(sender, elements))
         return
 
     # return theme
