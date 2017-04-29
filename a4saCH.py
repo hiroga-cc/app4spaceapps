@@ -31,7 +31,8 @@ class a4saCH():
         elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
         else:
-            elements = self.dao.getAppsByTheme(helpMeIBM(text))
+            elements = self.dao.getAppsByTheme(self.helpMeIBM(text))
+            print ("help me IBM!")
             send.send(self.gen.setText(sender, "You have an interest in {0}, right?".format(text)))
             send.send(self.gen.setTestPlaneList(sender, elements))
         return
