@@ -30,7 +30,7 @@ class a4saCH():
             elements = self.dao.getAppsByTheme(text)
             send.send(self.gen.setText(sender, "{0}, it's interesting.".format(text)))
             send.send(self.gen.setTestPlaneList(sender, elements))
-        elif text in self.sugoroku
+        elif text in self.sugoroku:
             self.getByWordShowAll(sender,text)
         elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
