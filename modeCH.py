@@ -5,7 +5,7 @@ import modeDAO
 
 class modeCH():
 
-    modes = ["Space Apps", "Init"]
+    modes = ["space apps", "init"]
 
     def __init__(self):
         self.dao = modeDAO.modeDAO()
@@ -17,7 +17,7 @@ class modeCH():
 
     def switch(self,sender,text):
         if text in self.modes:
-            self.dao.changeMode(sender,mode)
+            self.dao.changeMode(sender,text)
             send.send(self.gen.setText(sender, "Swithed!"))
         else:
             send.send(self.gen.setText(sender, "Hello!!"))
