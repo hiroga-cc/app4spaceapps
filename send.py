@@ -18,6 +18,8 @@ def send(data): # to FacebookMessanger
     headers = {'content-type': 'application/json'}
     params = {"access_token":token}
     r = requests.post(url, params=params, data=json.dumps(data), headers=headers)
+    print ("#DEBUG request.post ->")
+    print (r)
 
 class GenJson():
 
