@@ -11,7 +11,7 @@ class modeCH():
         self.dao = modeDAO.modeDAO()
         self.gen = send.GenJson()
 
-    def　getMode(self, sender):
+    def getMode(self, sender):
         mode=self.dao.getMode(sender)
         return mode
 
