@@ -15,6 +15,7 @@ define("port", default=5000, help="run on the given port", type=int)
 import json
 import send
 
+import modeCH
 import a4saCH
 import a4saDAO
 
@@ -75,8 +76,16 @@ class WebHookHandler(tornado.web.RequestHandler):
             if len(text) <= 0:
                 return
             # ここでメッセージを分類する。
-            ch = a4saCH.a4saCH()
-            ch.switch(sender,text)
+            # まずmodeをgetし、initならメニュー出しまで
+            # それ以外ならそのchに任せる
+            md = modeCH.modeCH()
+            mode = md.getMode(sender)
+            if mode == "init":
+                md.switch(sender,text)
+            else :
+                a4 = a4saCH.a4saCH()
+                a4.switch(sender,text)
+
             # reply = text + "、です！"
             # send.send(gen.setText(sender, reply))
 

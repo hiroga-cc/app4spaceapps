@@ -30,8 +30,6 @@ class a4saDAO():
             ele={"title":row[0], "image_url":row[2], "subtitle":row[1], "url":row[3], "fallback_url":"https://2016.spaceappschallenge.org/challenges"}
             elements.append(ele)
             row = cur.fetchone()
-        print ("#DEBUG This is elements...")
-        print (elements)
         return elements
 
     # フリーワード検索で結果を全て返す
