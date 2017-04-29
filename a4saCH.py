@@ -47,15 +47,11 @@ class a4saCH():
         elements = self.dao.getAppsByWord(text)
         for i, elm in enumerate(elements):
             if i%3 == 0:
-                print ("amari 0")
                 data = self.gen.returnPlaneListNoElements(sender)
             tmp = self.gen.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elements"].append(tmp)
-            if i%3 == 2:
-                print ("amari 2")
+            if i%3 == 2 || i+1 == len(elements):
                 send.send(data)
-                print ("send this...")
-                print (data)
         send.send(self.gen.setText(sender, "Wow, total {0} solutions HIT!".format(str(len(elements)))))
 
     # return theme

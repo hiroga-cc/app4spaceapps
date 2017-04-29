@@ -18,8 +18,8 @@ def send(data): # to FacebookMessanger
     headers = {'content-type': 'application/json'}
     params = {"access_token":token}
     r = requests.post(url, params=params, data=json.dumps(data), headers=headers)
-    print ("#DEBUG request.post ->")
-    print (r)
+    # print ("#DEBUG request.post ->")
+    # print (r)
 
 class GenJson():
 
@@ -74,8 +74,8 @@ class GenJson():
         for elm in elements:
             tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elements"].append(tmp)
-        print ("#DEBUG Generate json complete...")
-        print (data)
+        # print ("#DEBUG Generate json complete...")
+        # print (data)
         return data
 
     def returnPlaneListNoElements(self, sender):
