@@ -23,7 +23,7 @@ class a4saDAO():
     # selectした結果を3件全て返す
     def getAppsByTheme(self,theme):
         cur = self.conn.cursor()
-        cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by RANDOM() LIMIT 3;",[theme])
+        cur.execute("select name, explanation, imgurl, url from apps where theme = %s order by RANDOM() LIMIT 5;",[theme])
         row = cur.fetchone()
         elements=[]
         while row is not None:
