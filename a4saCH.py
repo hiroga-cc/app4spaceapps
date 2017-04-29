@@ -50,7 +50,7 @@ class a4saCH():
                 data = self.gen.returnPlaneListNoElements(sender)
             tmp = self.gen.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
             data["message"]["attachment"]["payload"]["elements"].append(tmp)
-            if i%3 == 2 || i+1 == len(elements):
+            if i%3 == 2 or i+1 == len(elements):
                 send.send(data)
         send.send(self.gen.setText(sender, "Wow, total {0} solutions HIT!".format(str(len(elements)))))
 
