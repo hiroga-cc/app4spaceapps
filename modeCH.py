@@ -18,7 +18,9 @@ class modeCH():
     def switch(self,sender,text):
         if text in self.modes:
             self.dao.changeMode(sender,text)
-            send.send(self.gen.setText(sender, "Swithed!"))
+            send.send(self.gen.setText(sender, "OK, Enjoy!"))
+            if text = "space apps":
+                send.send(self.gen.setOption(sender, "Are you ready for adventure?",["OK!", "GO!"]))
         else:
             send.send(self.gen.setText(sender, "Hello!!"))
             send.send(self.gen.setOption(sender, "Select Your Mode",self.modes))

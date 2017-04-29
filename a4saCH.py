@@ -16,13 +16,14 @@ channel = a4sa
 class a4saCH():
 
     themes = ["earth", "aero", "mars", "solar-system", "space-station", "tech"]
-    sugoroku = ["glacier", "hunting", "earthquake", "drought", "mine"]
+    sugoroku = ["ice", "hunting", "earthquake", "drought", "mine"]
 
     def __init__(self):
         self.dao = a4saDAO.a4saDAO()
         self.gen = send.GenJson()
 
     def switch(self,sender,text):
+        # Category
         if text in ("Yes","Sure"):
             send.send(self.gen.setText(sender, "Me too!!"))
             send.send(self.gen.setOption(sender, "Which category?",self.themes))
@@ -30,10 +31,16 @@ class a4saCH():
             elements = self.dao.getAppsByTheme(text)
             send.send(self.gen.setText(sender, "{0}, it's interesting.".format(text)))
             send.send(self.gen.setTestPlaneList(sender, elements))
-        elif text in self.sugoroku:
-            self.getByWordShowAll(sender,text)
         elif text == ("Hi"):
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
+
+        # Adventure
+        elif text in ("OK!", "GO!")
+            send.send(self.gen.setOption(sender, "Which is your challenge?",self.sugoroku))
+        elif text in self.sugoroku:
+            self.getByWordShowAll(sender,text)
+
+        # Free Search
         else:
             guessed = self.helpMeIBM(text)
             elements = self.dao.getAppsByTheme(guessed)
