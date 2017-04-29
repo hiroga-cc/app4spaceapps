@@ -69,7 +69,7 @@ class GenJson():
         return data
 
     def setTestPlaneList(self, sender, elements):
-        data = returnPlaneListNoElements(sender)
+        data = self.returnPlaneListNoElements(sender)
 
         for elm in elements:
             tmp = self.returnPlaneListElement(elm["title"], elm["image_url"], elm["subtitle"], elm["url"], elm["fallback_url"])
