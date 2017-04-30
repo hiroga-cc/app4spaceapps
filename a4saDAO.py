@@ -35,7 +35,7 @@ class a4saDAO():
     # フリーワード検索で結果を全て返す
     def getAppsByWord(self,theme):
       cur = self.conn.cursor()
-      cur.execute("select name, explanation, imgurl, url from apps where apps.name like %s or apps.explanation like %s order by RANDOM() ;",['%'+theme+'%','%'+theme+'%'])
+      cur.execute("select name, explanation, imgurl, url from apps where apps.name like %s or apps.explanation like %s or apps.url like %s order by RANDOM() ;",['%'+theme+'%','%'+theme+'%','%'+theme+'%'])
       row = cur.fetchone()
       elements=[]
       while row is not None:
