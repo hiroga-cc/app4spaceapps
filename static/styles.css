@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.width100percent {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('worldmap.png');
+    background-repeat: no-repeat;
+}
+
+div#japan {
+    position: relative;
+    top: 270px;
+    left: 600px;
+    color: red;
+    font-size: 2rem;
+    cursor: pointer;
+}
