@@ -40,6 +40,8 @@ class a4saCH():
         elif text in self.sugoroku:
             self.getByWordShowAll(sender,text)
             send.send(self.gen.setOption(sender, "Anything else?",self.sugoroku))
+        elif text in ("presentation"):
+            send.send(self.gen.setImage(sender,"https://api-2017.spaceappschallenge.org/team-photos/zS7mzkyMcxkaCr52p-c5j1wpTYY%3D/908/fill-1440x600/"))
 
         # Free Search
         else:
