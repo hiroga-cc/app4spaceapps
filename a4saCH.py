@@ -39,6 +39,7 @@ class a4saCH():
             send.send(self.gen.setOption(sender, "Which is your challenge?",self.sugoroku))
         elif text in self.sugoroku:
             self.getByWordShowAll(sender,text)
+            send.send(self.gen.setOption(sender, "Anything else?",self.sugoroku))
 
         # Free Search
         else:

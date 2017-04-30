@@ -27,6 +27,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", MainHandler),
             (r"/webhook?", WebHookHandler),
+            (r"/adventure?", AdventureHandler), # ex. http://localhost:5000/adventure
             (r"/view?", ViewHandler), # ex. http://localhost:5000/view
         ]
         settings = dict(
@@ -89,10 +90,17 @@ class WebHookHandler(tornado.web.RequestHandler):
             # reply = text + "、です！"
             # send.send(gen.setText(sender, reply))
 
+# Adventure page
+class AdventureHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render(
+            "index.html",
+            name="Space Apps Adventure!"
+        )
+
 # for view
 class ViewHandler(tornado.web.RequestHandler):
     def get(self):
-
         dao = a4saDAO.a4saDAO()
         cnt = dao.getCounts()
         google_analytics_id = False
