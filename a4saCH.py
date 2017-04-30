@@ -16,7 +16,7 @@ channel = a4sa
 class a4saCH():
 
     themes = ["earth", "aero", "mars", "solar-system", "space-station", "tech"]
-    sugoroku = ["renewable", "whether", "earthquake", "drought", "health"]
+    sugoroku = ["renewable", "whether", "earthquake", "Analysis", "health"]
 
     def __init__(self):
         self.dao = a4saDAO.a4saDAO()
