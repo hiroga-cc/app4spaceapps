@@ -16,23 +16,79 @@
 
 </head>
 <body>
-<h1>Hello world!</h1>
-<!--<input type="text" ng-model="name" title="hoge">-->
-<!--{{name}}-->
 
+<nav class="navbar navbar-default navbar-fixed-top" >
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+               <img src="{{static_url('helpme.png')}}" style="width: 20%"  alt="">
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li id="airplane"><a href="#">&nbsp;</a></li>
+                <!--<li>-->
+                    <!--<a href="javascript:void(0);">-->
+                        <!--<img src="{{static_url('airplane.png')}}" style="width:2%;" alt="">-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li><a href="#about">About</a></li>-->
+                <!--<li><a href="#contact">Contact</a></li>-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu" role="menu">-->
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="dropdown-header">Nav header</li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div id="map">
+    <img src="{{static_url('dog.png')}}" style="width: 10%"  alt="">
+</div>
+
+<!-- Japan -->
 <div id="japan" class="country" data-id="japan">●</div>
-<!-- Button trigger modal -->
 
-<!-- Button trigger modal -->
-<button type="button" id="japan_btn" class="btn btn-primary hidden " data-toggle="modal" data-target="#japan_modal"></button>
+
+<!-- Australia -->
+<div id="australia" class="country" data-id='australia'>●</div>
+
+<!-- SouthAfrica -->
+<div id="southafrica" class="country" data-id='southafrica'>●</div>
+
+<!-- Germany -->
+<div id="germany" class="country" data-id='germany'>●</div>
+
+<!-- Chile -->
+<div id="chile" class="country" data-id='chile'>●</div>
+<!-- USA -->
+<div id="usa" class="country" data-id="usa">●</div>
+
+<!-- Trouble trigger button  -->
+<button type="button"  class="modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#country_modal"></button>
 
 
 <!-- Modal -->
-<div class="modal fade" id="japan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="country_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">危険が迫ってます!!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,29 +96,91 @@
             <div class="modal-body">
                 <p id="msg"></p>
 
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="answer" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" id="go" type="button">Go!</button>
-                    </span>
+                <div id="panel_japan">
+                    <div class="panel panel-default" id="panel_japan_1">
+                        <div class="panel-heading">Panel heading without title</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <!--<div class="panel-footer">-->
+                            <!--<input type="radio" class="japan_r" data-val="1" value="1" name="japan_r">-->
+                        <!--</div>-->
+                    </div>
+
+                    <div class="panel panel-default" id="panel_japan_2">
+                        <div class="panel-heading">Panel heading without title</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <!--<div class="panel-footer">-->
+                            <!--<input type="radio" class="japan_r" data-val="1" value="1" name="japan_r">-->
+                        <!--</div>-->
+                    </div>
+
                 </div>
+                <!--<div class="input-group">-->
+                    <!--<input type="text" class="form-control" placeholder="answer" aria-describedby="basic-addon1">-->
+                    <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-primary" id="go" type="button">Go!</button>-->
+                    <!--</span>-->
+                <!--</div>-->
 
-                <p id="select"></p>
-                <input type="radio" class="answerRadio hidden" name="r1" value="1" id="r1">aaa<br>
-                <input type="radio" class="answerRadio hidden" name="r1" value="2" id="r2">bbb<br>
-                <input type="radio" class="answerRadio hidden" name="r1" value="3" id="r3">ccc
 
+
+
+                <!--<div class="radio">-->
+                    <!--<label><input type="radio" class="answerRadio" name="ans" value="1">Option 1</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label><input type="radio" class="answerRadio" name="ans" value="2">Option 2</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label><input type="radio" class="answerRadio" name="ans" value="3">Option 3</label>-->
+                <!--</div>-->
+
+                <!--<div class="alert alert-success" role="alert">正解!!</div>-->
 
             </div>
 
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary hidden" id="save">Save changes</button>
+                <button type="button" class="btn btn-primary" id="save">Next Country</button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Trouble trigger button  -->
+<button type="button" class="start_modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#start_modal"></button>
+<div class="modal fade" id="start_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="startModalLongTitle">Help Me!!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                地球は危機にされされている！君は地球を救えるか？
+                <br>
+                <div class="prof">
+                    <!--<link rel="stylesheet" href="{{ static_url("styles.css") }}" />-->
+                    <img src="{{ static_url('astroboy.png') }}" class="width10percent" alt="">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="ok">OK! Go Mission!!!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <script src="https://code.angularjs.org/angular-1.0.1.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
