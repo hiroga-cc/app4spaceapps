@@ -22,6 +22,13 @@
     bottom: 0px;
     right: -50px;
 }
+
+
+#map p {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+}
 body {
     /*background-image: url('worldmap.png');*/
     /*background-repeat: no-repeat;*/
@@ -41,6 +48,7 @@ div#australia {
     position: relative;
     top: -220px;
     left: 530px;
+    /*color: white !important;*/
 }
 
 div.country {
@@ -74,4 +82,8 @@ div#usa {
 
 #airplane {
 
+}
+
+.clickable-panel {
+    cursor: pointer;
 }
