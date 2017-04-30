@@ -35,7 +35,7 @@ class a4saCH():
             send.send(self.gen.setOption(sender, "Are you interested in space apps??",["Yes", "Sure"]))
 
         # Adventure
-    elif text in ("OK!", "GO!", "Help me"):
+        elif text in ("OK!", "GO!", "Help me"):
             send.send(self.gen.setOption(sender, "Which is your challenge?",self.sugoroku))
         elif text in self.sugoroku:
             self.getByWordShowAll(sender,text)
