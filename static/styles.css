@@ -39,51 +39,48 @@ body {
 }
 
 div#japan {
-    position: relative;
-    top: -390px;
+    position: absolute;
+    top: 250px;
     left: 600px;
 }
-
-div#australia {
-    position: relative;
-    top: -220px;
-    left: 530px;
-    /*color: white !important;*/
-}
-
 div.country {
+    position: relative;
     color: red;
     font-size: 4rem;
     cursor: pointer;
 }
+div.country:after {
+    content: '●';
+}
 
 div#southafrica {
-    position: relative;
-    top: -280px;
-    left: 170px;
+    position: absolute;
+    top: 480px;
+    left: 160px;
+    /*color: pink;*/
 }
-
+div#australia {
+    position: absolute;
+    top: 480px;
+    left: 530px;
+}
 div#chile {
-    position: relative;
-    top: -330px;
-    left: 1150px;
+    position: absolute;
+    top: 480px;
+    left: 1140px;
 }
 div#germany {
-    position: relative;
-    top: -610px;
+    position: absolute;
+    top: 190px;
     left: 100px;
 }
 div#usa {
-    position: relative;
-    top: -670px;
-    left: 1000px;
+    position: absolute;
+    top: 250px;
+    left: 950px;
     color: blue !important;
 }
 
-#airplane {
-
-}
-
-.clickable-panel {
+.click-able-panel .panel-body {
     cursor: pointer;
 }
