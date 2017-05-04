@@ -32,26 +32,6 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <!--<li id="airplane"><a href="#">&nbsp;</a></li>-->
-                <!--<li>-->
-                    <!--<a href="javascript:void(0);">-->
-                        <!--<img src="{{static_url('airplane.png')}}" style="width:2%;" alt="">-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li><a href="#about">About</a></li>-->
-                <!--<li><a href="#contact">Contact</a></li>-->
-                <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu" role="menu">-->
-                        <!--<li><a href="#">Action</a></li>-->
-                        <!--<li><a href="#">Another action</a></li>-->
-                        <!--<li><a href="#">Something else here</a></li>-->
-                        <!--<li class="divider"></li>-->
-                        <!--<li class="dropdown-header">Nav header</li>-->
-                        <!--<li><a href="#">Separated link</a></li>-->
-                        <!--<li><a href="#">One more separated link</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -59,30 +39,22 @@
 
 <div id="map">
     <img src="{{static_url('dog.png')}}" style="width: 10%"  alt="">
-    <!--<p><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#last_odal">aaa</button></p>-->
     <p><button type="button" class="btn btn-primary"data-toggle="modal" data-target="#last_modal">Search For SpaceAppChatBot!</button></p>
+    <div id="japan" class="country"></div>
+    <div id="southafrica" class="country"></div>
+    <div id="germany" class="country"></div>
+    <div id="chile" class="country"></div>
+    <div id="usa" class="country"></div>
+    <div id="australia" class="country"></div>
 </div>
 
-<!-- Japan -->
-<div id="japan" class="country" data-id="japan">●</div>
-
-
-<!-- Australia -->
-<div id="australia" class="country" data-id='australia'>●</div>
-
-<!-- SouthAfrica -->
-<div id="southafrica" class="country" data-id='southafrica'>●</div>
-
-<!-- Germany -->
-<div id="germany" class="country" data-id='germany'>●</div>
-
-<!-- Chile -->
-<div id="chile" class="country" data-id='chile'>●</div>
-<!-- USA -->
-<div id="usa" class="country" data-id="usa">●</div>
 
 <!-- Trouble trigger button  -->
-<button type="button"  class="modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#country_modal"></button>
+<button type="button"
+        class="modal_trigger_btn btn btn-primary hidden "
+        data-toggle="modal"
+        data-target="#country_modal">
+</button>
 
 
 <!-- Modal -->
@@ -96,55 +68,14 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <!-- Japan -->
-                <div id="panel_japan" class="hidden">
-                    <p class="msg"></p>
-                    <div class="panel panel-default clickable-panel"  data-collect="y">
-                        <div class="panel-heading hidden">Collect</div>
-                        <div class="panel-body">
-                            Earth Observatory Natural Event Tracker – News Feed
-                        </div>
-                    </div>
-                    <div class="panel panel-default clickable-panel"  data-collect="n">
-                        <div class="panel-heading hidden">Worng!</div>
-                        <div class="panel-body">
-                            Post-Disaster Damage Determination(P3D)
-                        </div>
-                    </div>
+                <input type="hidden" value="" id="hiddenCountry">
+                <div id="panel" class="">
+                    <p class="msg" id="msg"></p>
                 </div>
-
-
-
-                <!-- Austraria -->
-                <div id="panel_australia" class="hidden">
-                    <p class="msg"></p>
-                    <div class="panel panel-default clickable-panel"  data-collect="y">
-                        <div class="panel-heading hidden">Collect</div>
-                        <div class="panel-body">
-                            GeoAnalysis Drone
-                        </div>
-                    </div>
-                    <div class="panel panel-default clickable-panel"  data-collect="n">
-                        <div class="panel-heading hidden">Worng!</div>
-                        <div class="panel-body">
-                            ADAM
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
             </div>
-
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary hidden" data-dismiss="modal" id="save">Next Country</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Next Country</button>
             </div>
         </div>
     </div>
@@ -190,9 +121,7 @@
             </div>
             <div class="modal-body">
                 他にも色々なSpace Appsがあるから、「More Space Apps」って聞いてみよう！
-
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" >ThanX!</button>
