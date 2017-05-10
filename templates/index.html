@@ -1,149 +1,137 @@
 <!DOCTYPE html>
 <html lang="ja" ng-app>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Space Apps Adventure!</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Space Apps Adventure!</title>
 
-    <link rel="stylesheet" href="{{ static_url("styles.css") }}" />
-    <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" />
+  <link rel="stylesheet" href="{{ static_url("styles.css") }}" />
+  <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" />
 
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" ></script>-->
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" ></script>-->
+
+  <script src="{{ static_url("three.js ")}}"></script>
+  <script src="{{ static_url("3/renderers/Projector.js ")}}"></script>
+  <script src="{{ static_url("3/renderers/CanvasRenderer.js ")}}"></script>
+  <script src="{{ static_url("3/libs/stats.min.js ")}}"></script>
 
 </head>
+
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" >
+  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-               <img src="{{static_url('helpme.png')}}" style="width: 20%"  alt="">
-            </a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-            </ul>
-        </div><!--/.nav-collapse -->
+        <a class="navbar-brand" href="#">
+          <img src="{{static_url('helpme.png')}}" style="width: 20%" alt="">
+        </a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<div id="map">
-    <img src="{{static_url('dog.png')}}" style="width: 10%"  alt="">
-    <p><button type="button" class="btn btn-primary"data-toggle="modal" data-target="#last_modal">Search For SpaceAppChatBot!</button></p>
-    <div id="japan" class="country"></div>
-    <div id="southafrica" class="country"></div>
-    <div id="germany" class="country"></div>
-    <div id="chile" class="country"></div>
-    <div id="usa" class="country"></div>
-    <div id="australia" class="country"></div>
-</div>
+  <div id="map" class="relative">
+    <img src="{{static_url('dog.png')}}" style="width: 10%;" class="absolute" alt="">
+    <p><button type="button" class="btn btn-primary absolute" align="center" data-toggle="modal" data-target="#last_modal">Search For SpaceAppChatBot!</button></p>
+  </div>
 
+  <!-- Trouble trigger button  -->
+  <button type="button" class="modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#country_modal">
+  </button>
 
-<!-- Trouble trigger button  -->
-<button type="button"
-        class="modal_trigger_btn btn btn-primary hidden "
-        data-toggle="modal"
-        data-target="#country_modal">
-</button>
-
-
-<!-- Modal -->
-<div class="modal fade" id="country_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="country_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">危険が迫ってます!!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Space Appsを調べて、ミッションをクリアしよう！</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" value="" id="hiddenCountry">
-                <div id="panel" class="">
-                    <p class="msg" id="msg"></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Next Country</button>
-            </div>
         </div>
+        <div class="modal-body">
+          <input type="hidden" value="" id="hiddenCountry">
+          <div id="panel" class="">
+            <p class="msg" id="msg"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Next Country</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Trouble trigger button  -->
-<button type="button" class="start_modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#start_modal"></button>
-<div class="modal fade" id="start_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <!-- Trouble trigger button  -->
+  <button type="button" class="start_modal_trigger_btn btn btn-primary hidden " data-toggle="modal" data-target="#start_modal"></button>
+  <div class="modal fade" id="start_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="startModalLongTitle">Help Me!!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="startModalLongTitle">Help Me! Space Apps!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                地球は危機にされされている！君は地球を救えるか？
-                <br>
-                <div class="prof">
-                    <!--<link rel="stylesheet" href="{{ static_url("styles.css") }}" />-->
-                    <img src="{{ static_url('astroboy.png') }}" class="width10percent" alt="">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="ok">OK! Go Mission!!!</button>
-            </div>
         </div>
-    </div>
-</div>
+        <div class="modal-body">
+          宇宙飛行士と一緒に、地球の環境を良くするためのアイデアを探しに行こう！
+          <br>
+          <div class="prof">
+            <!--<link rel="stylesheet" href="{{ static_url("styles.css") }}" />-->
+            <img src="{{ static_url('astroboy.png') }}" class="width10percent" alt="">
+          </div>
+        </div>
 
-<!-- Last Message -->
-<div class="modal fade" id="last_modal" tabindex="-1" role="dialog" aria-labelledby="lastModalLongTitle" aria-hidden="true">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="ok">出発！</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Last Message -->
+  <div class="modal fade" id="last_modal" tabindex="-1" role="dialog" aria-labelledby="lastModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="">一周お疲れさまでした！</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">一周お疲れさまでした！</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                他にも色々なSpace Appsがあるから、「More Space Apps」って聞いてみよう！
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" >ThanX!</button>
-            </div>
         </div>
+        <div class="modal-body">
+          他にも色々なSpace Appsがあるから、「More Space Apps」って聞いてみよう！
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary hidden" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">ThanX!</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
+  <script src="https://code.angularjs.org/angular-1.0.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-    </div>
-</footer>
-
-<script src="https://code.angularjs.org/angular-1.0.1.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="{{ static_url("js/bootstrap.min.js") }}"></script>
-<script src="{{ static_url("app.js") }}"></script>
+  <script src="{{ static_url("js/bootstrap.min.js ") }}"></script>
+  <script src="{{ static_url("app.js ") }}"></script>
 
 </body>
+
 </html>

@@ -10,24 +10,24 @@
 }
 #map {
     margin-top: 30px;
-    background-image: url('worldmap.png');
-    background-repeat: no-repeat;
-    width: 1280px;
-    height: 640px;
+    /*background-image: url('worldmap.png');*/
+    /*background-repeat: no-repeat;*/
+    /*width: 1280px;
+    height: 640px;*/
     position: relative;
 }
 
 #map img {
     position: absolute;
-    bottom: 0px;
-    right: -50px;
+    bottom: 7.5%;
+    right: 10%;
 }
 
 
 #map p {
     position: absolute;
-    bottom: 0px;
-    left: 50%;
+    bottom: 10%;
+    left: 10%;
 }
 body {
     /*background-image: url('worldmap.png');*/
@@ -38,7 +38,7 @@ body {
     margin-bottom: 100px;
 }
 
-div#japan {
+/*div#japan {
     position: absolute;
     top: 250px;
     left: 600px;
@@ -57,7 +57,7 @@ div#southafrica {
     position: absolute;
     top: 480px;
     left: 160px;
-    /*color: pink;*/
+    /*color: pink;
 }
 div#australia {
     position: absolute;
@@ -79,8 +79,15 @@ div#usa {
     top: 250px;
     left: 950px;
     color: blue !important;
-}
+}*/
 
 .click-able-panel .panel-body {
     cursor: pointer;
+}
+
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
 }
